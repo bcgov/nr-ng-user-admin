@@ -9,6 +9,10 @@ sqlalchemy = "*"
 uvicorn = "*"
 requests = "*"
 fastapi-pagination = "*"
+authlib = "*"
+httpx = "*"
+itsdangerous = "*"
+email-validator = "*"
 
 [dev-packages]
 
