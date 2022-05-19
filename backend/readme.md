@@ -10,6 +10,7 @@ pipenv install
 pipenv shell
 cd backend
 export DB_CONN=sqlite:///forestclient.db
+dotenv
 uvicorn app.main:app --port 5000 --reload
 ```
 

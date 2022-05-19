@@ -9,7 +9,7 @@ import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
         authority: 'https://dev.oidc.gov.bc.ca/auth/realms/ichqx89w/.well-known/openid-configuration',
         redirectUrl: window.location.origin,
         postLogoutRedirectUri: window.location.origin,
-        clientId: 'fom',
+        clientId: 'fom-user-manager',
         scope: 'openid', //profile email taler_api offline_access
         responseType: 'code',
         // autoUserInfo: true,

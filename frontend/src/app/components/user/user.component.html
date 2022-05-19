@@ -1,0 +1,36 @@
+<!-- <div class="form-control"> -->
+<div>
+    <label for="text">Enter User</label>
+    <!-- [()] square brackets and round brackets below create a two way data binding -->
+    <input type="text" name="userEntry" [(ngModel)]="userEntry" id="userEntry" placeholder="Add Task">
+    <label>{{ getUsers() }}</label>
+    <!-- <button type="button" (myClick)="clickMessage=$event" clickable>click with myClick</button> -->
+    {{clickMessage}}
+
+    <!-- <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="userEntry">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete> -->
+
+</div>
+<div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Number</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+
+</div>

@@ -1,1 +1,20 @@
-<p>add-user works!</p>
+<h2>User Admin</h2>
+
+<div *ngIf="isAuthenticated; else noAuth">
+    <p> logged in now!</p>
+    <div class="form-control">
+        <!-- <input type="text" name="text" [(ngModel)] = "text" id="text" placeholder="Add Task"> -->
+        <br />
+        userData
+        <pre>{{ userData | async | json }}</pre>
+
+        <br />
+
+        <app-user></app-user>
+    </div>
+</div>
+
+<ng-template #noAuth>
+    <button (click)="login()">Login</button>
+    <hr />
+</ng-template>

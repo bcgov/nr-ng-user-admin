@@ -4,15 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "*"
-sqlalchemy = "*"
-uvicorn = "*"
-requests = "*"
-fastapi-pagination = "*"
-authlib = "*"
-httpx = "*"
-itsdangerous = "*"
-email-validator = "*"
 
 [dev-packages]
 

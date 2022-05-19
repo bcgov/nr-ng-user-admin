@@ -22,3 +22,14 @@ def show_records(db: Session = Depends(dependencies.get_db)):
     queryData = crud.getForestClient(db)
     return paginate(queryData)
 
+
+@router.get("/keycloak_users", response_model=Page[schemas.forest_client],
+            tags=['keycloak_users'])
+def show_records(db: Session = Depends(dependencies.get_db)):
+    """
+    Returns the full data structure of all the data that has been collected for
+    each community health map query.
+    """
+    queryData = crud.getForestClient(db)
+    return paginate(queryData)
+
