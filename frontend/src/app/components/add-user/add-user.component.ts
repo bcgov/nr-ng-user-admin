@@ -11,8 +11,6 @@ import { UserComponent } from '../user/user.component'
 })
 export class AddUserComponent implements OnInit {
 
-
-  configuration!: Observable<OpenIdConfiguration>;
   userDataChanged!: Observable<OidcClientNotification<any>>;
   userData!: Observable<UserDataResult>;
 
@@ -22,11 +20,6 @@ export class AddUserComponent implements OnInit {
   constructor(public oidcSecurityService: OidcSecurityService) {}
 
   ngOnInit(): void {
-    this.configuration = this.oidcSecurityService.getConfiguration();
-
-    this.userData = this.oidcSecurityService.userData$;
-
-
     this.oidcSecurityService.isAuthenticated$.subscribe(({ isAuthenticated }) => {
       this.isAuthenticated = isAuthenticated;
 
@@ -34,11 +27,5 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-  login() {
-    this.oidcSecurityService.authorize();
-  }
 
-  logout() {
-    this.oidcSecurityService.logoff();
-  }
 }

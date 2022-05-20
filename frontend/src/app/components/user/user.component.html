@@ -1,36 +1,17 @@
 <!-- <div class="form-control"> -->
-<div>
-    <label for="text">Enter User</label>
-    <!-- [()] square brackets and round brackets below create a two way data binding -->
-    <input type="text" name="userEntry" [(ngModel)]="userEntry" id="userEntry" placeholder="Add Task">
-    <label>{{ getUsers() }}</label>
-    <!-- <button type="button" (myClick)="clickMessage=$event" clickable>click with myClick</button> -->
-    {{clickMessage}}
 
-    <!-- <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of options" [value]="userEntry">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete> -->
+<p class="card-text">
+    Most common case is showing data from backend
+    API and with ng-select this is extremely simple since you can bind directly to
+    observable when using angular <b> | async</b> pipe
+</p>
 
-</div>
-<div>
-    <form class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Number</mat-label>
-          <input type="text"
-                 placeholder="Pick one"
-                 aria-label="Number"
-                 matInput
-                 [formControl]="myControl"
-                 [matAutocomplete]="auto">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-              {{option}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </form>
+<!-- <ng-select [items]="usersData | async"
+           bindLabel="name"
+           autofocus
+           bindValue="id"
+           [(ngModel)]="selectedUser">
+</ng-select> -->
 
+<br/>Selected: {{selectedUser}}
 
-</div>

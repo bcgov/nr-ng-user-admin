@@ -14,43 +14,23 @@ import {map, startWith} from 'rxjs/operators';
 })
 
 export class UserComponent implements OnInit {
-  @Input() userEntry: String = 'test';
-  clickMessage!: String;
-
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three', 'Four'];
-  filteredOptions!: Observable<string[]>;
-
-  users: Object | undefined;
+  users: Observable<Object> | undefined;
+  usersData: Object[] = []
+  selectedUser: string = 'dummy';
 
   constructor(private userService: UserServiceService) { }
 
   // ngOnInit runs when the component is loaded
   ngOnInit(): void {
-    this.filteredOptions = this.myControl
-    .valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)),
-    );
 
     // getting the users data
     this.userService.getUsers().subscribe(data => {
-      this.users = data;
-      console.log("**************** USERS page: " + JSON.stringify(this.users));
+      // TODO: need to concat the stream
+      this.usersData.concat(data);
+      console.log("**************** USERS page: " + JSON.stringify(data));
     });
-  }
 
-  private _filter(value: string): string[] {
-      const filterValue = value.toLowerCase();
-      return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
-
-  getUsers() {
-    var userReturn: String = '';
-    if (this.userEntry.length > 3) {
-      userReturn = this.userEntry;
-    }
-    return userReturn;
+    this.users = this.userService.getUsers()
   }
 
 }
