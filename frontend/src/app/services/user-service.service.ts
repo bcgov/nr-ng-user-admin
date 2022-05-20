@@ -121,3 +121,12 @@ interface pageParamModel {
 
 // manipulate data stream ideas:
 // https://stackoverflow.com/questions/48801044/push-pop-items-from-observable
+
+// combine multiple http streams
+// https://coryrylan.com/blog/angular-multiple-http-requests-with-rxjs
+
+// https://syntaxfix.com/question/5473/how-to-make-one-observable-sequence-wait-for-another-to-complete-before-emitting
+//
+
+// decent docs on rxjs operators
+// https://indepth.dev/reference/rxjs/operators

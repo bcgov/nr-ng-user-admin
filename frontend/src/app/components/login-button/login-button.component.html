@@ -1,0 +1,8 @@
+<button
+    type="button"
+    (click)="loginLogout()"
+    [ngClass]=
+        "{'btn-success': !isAuthenticated,
+          'btn-danger': isAuthenticated}"
+    class="btn btn-success">{{buttonText}}</button>
+

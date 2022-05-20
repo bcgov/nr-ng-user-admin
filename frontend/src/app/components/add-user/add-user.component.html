@@ -1,20 +1,32 @@
-<h2>User Admin</h2>
+<app-header></app-header>
+<!-- <div *ngIf="isAuthenticated; else noAuth"> -->
 
-<div *ngIf="isAuthenticated; else noAuth">
-    <p> logged in now!</p>
-    <div class="form-control">
-        <!-- <input type="text" name="text" [(ngModel)] = "text" id="text" placeholder="Add Task"> -->
-        <br />
-        userData
-        <pre>{{ userData | async | json }}</pre>
+<div class="container" *ngIf="isAuthenticated;">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class=".col-md-10 col-md-offset-2"></div>
+        </div>
+        <div class="row"></div>
+        <div class=".col-md-12"></div>
+        <div class="row">
+            <div class=".col-md-2 col-md-offset-2"></div>
+            <div class="input-group mb-4 col-md-offset-2">
+                <input type="text" class="form-control" placeholder="Enter Username or email" aria-label="Username"
+                    aria-describedby="basic-addon1">
+                <span class="input-group-text"> </span>
+                <input type="text" class="form-control" placeholder="Forest Client Name" aria-label="Usernamse"
+                    aria-describedby="basic-addon2">
+                <span class="input-group-text"> </span>
+                <button type="button" class="btn btn-primary">Add User / Role</button>
+            </div>
+            <div class=".col-md-2 col-md-offset-2">
 
-        <br />
+            </div>
+            <div class=".col-md-2"></div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
 
-        <app-user></app-user>
     </div>
 </div>
-
-<ng-template #noAuth>
-    <button (click)="login()">Login</button>
-    <hr />
-</ng-template>

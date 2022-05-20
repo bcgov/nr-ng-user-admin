@@ -19,6 +19,9 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
 import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { DebugComponent } from './debug/debug.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     AddUserComponent,
     UnauthorizedComponent,
     UserComponent,
+    HeaderComponent,
+    LoginButtonComponent,
+    DebugComponent,
   ],
   imports: [
     BrowserModule,

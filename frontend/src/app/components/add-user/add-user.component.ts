@@ -11,10 +11,6 @@ import { UserComponent } from '../user/user.component'
 })
 export class AddUserComponent implements OnInit {
 
-  // constructor() {}
-  // ngOnInit(): void {
-  // }
-
 
   configuration!: Observable<OpenIdConfiguration>;
   userDataChanged!: Observable<OidcClientNotification<any>>;
