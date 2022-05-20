@@ -15,7 +15,6 @@ export class DebugComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.oidcSecurityService.userData$;
-
   }
 
 }
