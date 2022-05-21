@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 import { AppComponent } from './app.component';
@@ -37,7 +37,7 @@ import { DebugComponent } from './debug/debug.component';
     BrowserModule,
     RoutingModule,
     AuthConfigModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule, NgSelectModule,
     BrowserAnimationsModule,
     MatSliderModule, MatInputModule, MatAutocompleteModule,
     HttpClientModule

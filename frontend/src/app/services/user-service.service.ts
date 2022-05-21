@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { mergeMap, switchMap } from 'rxjs';
+import { mergeMap, Observable, switchMap, toArray } from 'rxjs';
 //import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import jwtDecode, { JwtPayload } from "jwt-decode";
 //import { UrlSerializer,  } from '@angular/router';
+import {OIDCUser} from '../components/user/user.model'
+
 
 @Injectable({
   providedIn: 'root'
@@ -80,7 +82,7 @@ export class UserServiceService {
     return pageParams;
   }
 
-  getUsersPage(first: string, max: string) {
+  getUsersPage(first: string, max: string):  Observable<OIDCUser[]> {
     /**
      * makes individual requests using first / max as parameters that are
      * sent to the request
@@ -90,13 +92,13 @@ export class UserServiceService {
       .set("first", first)
       .set("max", max);
     console.log('get user page params: ' + JSON.stringify(params) + ' ' + first)
-    return this.http.get(this.oidcAuthURI + '/users', {
+    return this.http.get<OIDCUser[]>(this.oidcAuthURI + '/users', {
       "headers": httpHeads,
       "params": params
     });
   }
 
-  getUsers() {
+  getUsers(): Observable<OIDCUser[]> {
     /**
      * returns an observable stream that returns pages of data from the
      * keycloak api containing individual users.
@@ -111,7 +113,57 @@ export class UserServiceService {
       )
     );
   }
+
+  // getUsersOneList() {
+  //   let pageParamsObservable = this.getPageParams();
+  //   return pageParamsObservable.pipe(
+  //     forkJoin(
+  //       pageParam => {
+  //         if (!pageObservables.length) {
+  //           pageObservables = pageParam;
+  //         } else {
+  //           pageObservables = pageObservables.concat(pageParam);
+  //         }
+  //         console.log('page 2' + JSON.stringify(pageParam));
+  //         pageObservables = pageObservables.concat(pageParam);
+  //         return this.getUsersPage(pageParam['first'], pageParam.max)
+  //       }
+  //     )
+  //   );
+  // }
+
+
+  getUsersStream() {
+    /**
+     * returns an observable stream that returns pages of data from the
+     * keycloak api containing individual users.
+     */
+    let getUsers = this.getUsers();
+    return getUsers.pipe(
+      switchMap(
+        (userList) => {
+              let outList: OIDCUser[] = [];
+              let singleValue: OIDCUser;
+              //for (let x=0; x<userList.length; x++) {
+              // userList.forEach( (singleValue: OIDCUser): void => {
+              //   outList.push(singleValue);
+              // });
+              for (let singleValue of userList) {
+                outList.push(singleValue);
+              }
+              return outList;
+            }
+      ),
+      toArray()
+    )
+  }
+
+  //for (const x of xs) { console.log(x); }
+
+
+
 }
+
 
 interface pageParamModel {
   first: string,

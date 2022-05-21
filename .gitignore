@@ -47,3 +47,4 @@ venv
 .angular
 frontend/src/app/components/user/demo-id-token.json
 frontend/.angular/cache
+frontend/src/app/components/user/junkuser.json
