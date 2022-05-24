@@ -1,35 +1,40 @@
 <app-header></app-header>
 <!-- <div *ngIf="isAuthenticated; else noAuth"> -->
 
-<div class="container" *ngIf="isAuthenticated;">
+<!-- <div class="container" *ngIf="isAuthenticated;"> -->
+<div *ngIf="isAuthenticated;">
+
     <div class="container">
         <hr>
-        <div class="row">
+        <!-- <div class="row">
             <div class=".col-md-10 col-md-offset-2"></div>
-        </div>
-        <div class="row"></div>
-        <div class=".col-md-12"></div>
-        <div class="row">
-            <div class=".col-md-2 col-md-offset-2"></div>
-            <div class="input-group mb-4 col-md-offset-2">
-                <div class="w-50 h-100 p-3">
-                    <app-user aria-label="Username"></app-user>
-                </div>
-                <!-- <input type="text" class="form-control" placeholder="Enter Username or email" aria-label="Username"
+        </div> -->
+        <!-- <div class="row"></div>
+        <div class=".col-md-12"></div> -->
+        <div class="row justify-content-around">
+            <!-- <div class=".col-md-2 col-md-offset-2"></div> -->
+            <!-- <div class="input-group mb-4 col-md-offset-2"> -->
+            <!-- <div class="w-40 h-100 p-3"> -->
+            <div class="col">
+
+                <app-user aria-label="Username"></app-user>
+            </div>
+            <!-- <input type="text" class="form-control" placeholder="Enter Username or email" aria-label="Username"
                     aria-describedby="basic-addon1">-->
-                <span class="input-group-text"> </span>
-                <input type="text" class="form-control" placeholder="Forest Client Name" aria-label="Usernamse"
-                    aria-describedby="basic-addon2">
-                <span class="input-group-text"> </span>
+            <!-- <span class="input-group-text"> </span> -->
+            <!-- <input type="text" class="form-control" placeholder="Forest Client Name" aria-label="Username"
+                    aria-describedby="basic-addon2"> -->
+            <!-- <div class="w-40 h-100 p-3"> -->
+            <div class="col ">
+                <app-forestclient></app-forestclient>
+            </div>
+            <!-- <div class="w-10 h-100 p-3"> -->
+            <div class="col ">
+                <!-- <span class="input-group-text"> </span> -->
                 <button type="button" class="btn btn-primary">Add User / Role</button>
             </div>
-            <div class=".col-md-2 col-md-offset-2">
-
-            </div>
-            <div class=".col-md-2"></div>
         </div>
-        <div class="row"></div>
-        <div class="row"></div>
-
+        <!-- <div class=".col-md-2 col-md-offset-2"></div>
+            <div class=".col-md-2"></div> -->
     </div>
 </div>
