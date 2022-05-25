@@ -78,7 +78,9 @@ origins = [
     "http://localhost:8002",
     "https://localhost:8002",
     "http://localhost:8080",
-    "http://127.0.0.1:5000"
+    "http://127.0.0.1:5000",
+    "http://127.0.0.1:4204",
+    "http://localhost:4204"
 ]
 app.add_middleware(
     CORSMiddleware,

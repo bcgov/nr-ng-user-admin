@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserServiceService } from '../../services/user-service.service'
+import { Observable } from 'rxjs';
+//import {UserServiceService } from '../../services/user-service.service'
+import {ForestClientServiceService } from '../../services/forest-client-service.service'
 
 
 @Component({
@@ -9,14 +11,21 @@ import {UserServiceService } from '../../services/user-service.service'
 })
 export class ForestclientComponent implements OnInit {
   forestclient: any[] = [];
-  selectedForestClient!: number;
+  selectedForestClient!: string;
+  forestClientsObservable!: Observable<any>;
 
-  constructor(public userService: UserServiceService) { }
+  constructor(public forestClientService: ForestClientServiceService) { }
 
   ngOnInit(): void {
     this.forestclient = [{name: 'client 1', id:223},
                          {name:"client2", id: 452},
                          {name:  "client 4", id:3342}];
+
+    this.forestClientService.getForestClients().subscribe(data => {
+      console.log("data: " + JSON.stringify(data));
+    })
+
+    this.forestClientsObservable = this.forestClientService.getForestClients();
   }
 
 }

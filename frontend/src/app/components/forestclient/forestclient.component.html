@@ -1,8 +1,10 @@
-<!-- <ng-select [items]="users | async" -->
-<ng-select [items]="forestclient"
-           bindLabel="name"
+<!-- <ng-select [items]="forestclient" -->
+
+
+<ng-select [items]="forestClientsObservable | async"
+           bindLabel="forest_client_name"
            autofocus
-           bindValue="id"
+           bindValue="forest_client_number"
            [(ngModel)]="selectedForestClient">
 </ng-select>
 
