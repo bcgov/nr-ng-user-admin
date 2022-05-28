@@ -1,10 +1,18 @@
 <!-- <ng-select [items]="forestclient" -->
+    <!-- [(ngModel)]="selectedForestClient"> -->
 
 
-<ng-select [items]="forestClientsObservable | async"
+<!-- <ng-select [items]="forestclientBuffer | async" -->
+<ng-select [items]="forestclientBuffer"
            bindLabel="forest_client_name"
-           autofocus
+           [virtualScroll]="true"
            bindValue="forest_client_number"
-           [(ngModel)]="selectedForestClient">
+           placeholder="Select forest client"
+           (search)="onSearch($event)"
+           [loading]="loading"
+           appendTo="body">
+    <ng-template ng-option-tmp let-item="item" let-index="index">
+        {{item.forest_client_number}}  - {{item.forest_client_name}}
+    </ng-template>
 </ng-select>
 

@@ -4,5 +4,5 @@
     [ngClass]=
         "{'btn-success': !isAuthenticated,
           'btn-danger': isAuthenticated}"
-    class="btn btn-success">{{buttonText}}</button>
+    class="btn btn-success">{{!isAuthenticated ? 'Login' : 'Logout'}}</button>
 

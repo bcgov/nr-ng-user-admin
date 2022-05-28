@@ -158,13 +158,7 @@ export class UserServiceService {
       toArray()
     )
   }
-
-  //for (const x of xs) { console.log(x); }
-
-
-
 }
-
 
 interface pageParamModel {
   first: string,

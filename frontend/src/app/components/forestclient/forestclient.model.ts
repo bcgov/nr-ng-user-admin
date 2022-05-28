@@ -1,5 +1,8 @@
 export interface ForestClientResponse {
-    items: Array<ForestClientElement>
+    items: Array<ForestClientElement>;
+    total: number;
+    limit: number;
+    offset: number;
 }
 
 

@@ -27,15 +27,14 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
 
     // getting the users data
-    this.userService.getUsersStream().subscribe(data => {
+    // this.userService.getUsersStream().subscribe(data => {
       // TODO: need to concat the stream
      // this.usersData.push(data);
-      console.log("**************** USERS page: " + JSON.stringify(data));
-    });
+      //console.log("**************** USERS page: " + JSON.stringify(data));
+    // });
 
     //this.users = this.userService.getUsers();
     this.users = this.userService.getUsersStream();
-
   }
 
   getUserData() {
