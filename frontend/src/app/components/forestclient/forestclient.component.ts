@@ -22,21 +22,25 @@ export class ForestclientComponent implements OnInit {
   constructor(public forestClientService: ForestClientServiceService) { }
 
   ngOnInit(): void {
-    this.forestclient = [{ name: 'client 1', id: 223 },
-    { name: "client2", id: 452 },
-    { name: "client 4", id: 3342 }];
+    // this.forestclient = [{ name: 'client 1', id: 223 },
+    // { name: "client2", id: 452 },
+    // { name: "client 4", id: 3342 }];
     this.forestclientBuffer = [];
-    this.loading = true;
-    this.forestClientsObservable = this.forestClientService.getAllForestClients();
-    this.forestClientsObservable.subscribe(data => {
-      //console.log("forest client data: " + JSON.stringify(data));
-      console.log("loading in data in observable: " + this.loading);
-      this.forestclient = data;
-      this.forestclientBuffer = [];
-      this.loading = false
-      console.log("finished loading: " + this.loading);
+    console.log("forest client data: "+ this.forestclient)
+    if (!this.forestclient.length) {
+      this.loading = true;
+      this.forestClientsObservable = this.forestClientService.getAllForestClients();
 
-    })
+      this.forestClientsObservable.subscribe(data => {
+        //console.log("forest client data: " + JSON.stringify(data));
+        console.log("loading in data in observable: " + this.loading);
+        this.forestclient = data;
+        this.forestclientBuffer = [];
+        this.loading = false
+        console.log("finished loading: " + this.loading);
+
+      })
+    }
   }
 
   onSearch($event: Event) {
@@ -52,12 +56,13 @@ export class ForestclientComponent implements OnInit {
         for (let x = 0; x < this.forestclient.length; x++) {
           if (this.forestclient[x]['forest_client_name'].toLowerCase().includes(searchString.toLowerCase())) {
             //this.forestclientBuffer.push(this.forestclient[x]);
-            ItemsToAdd.push(this.forestclient[x]);
-            console.log("adding element: " + this.forestclient[x]['forest_client_name'])
+            if (!this.forestclientBuffer.includes(this.forestclient[x])) {
+              ItemsToAdd.push(this.forestclient[x]);
+              console.log("adding element: " + this.forestclient[x]['forest_client_name'])
+            }
           }
           ItemsToAdd.sort((a, b) => (a.forest_client_name > b.forest_client_name) ? 1 : -1)
           this.loading = false;
-
         }
       // }, 20);
       this.forestclientBuffer = this.forestclientBuffer.concat(ItemsToAdd);
