@@ -14,7 +14,6 @@ export class AddUserComponent implements OnInit {
   userDataChanged!: Observable<OidcClientNotification<any>>;
   userData!: Observable<UserDataResult>;
 
-
   isAuthenticated: boolean = false;
 
   constructor(public oidcSecurityService: OidcSecurityService) {}
@@ -22,10 +21,7 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
     this.oidcSecurityService.isAuthenticated$.subscribe(({ isAuthenticated }) => {
       this.isAuthenticated = isAuthenticated;
-
       console.warn('authenticated: ', this.isAuthenticated);
     });
   }
-
-
 }

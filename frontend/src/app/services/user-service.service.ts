@@ -6,6 +6,7 @@ import { mergeMap, Observable, switchMap, toArray } from 'rxjs';
 import jwtDecode, { JwtPayload } from "jwt-decode";
 //import { UrlSerializer,  } from '@angular/router';
 import {OIDCUser} from '../components/user/user.model'
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -157,13 +158,7 @@ export class UserServiceService {
       toArray()
     )
   }
-
-  //for (const x of xs) { console.log(x); }
-
-
-
 }
-
 
 interface pageParamModel {
   first: string,

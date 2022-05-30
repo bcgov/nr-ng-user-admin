@@ -17,7 +17,6 @@ export class LoginButtonComponent implements OnInit {
 
   isAuthenticated: boolean = false;
 
-
   constructor(public oidcSecurityService: OidcSecurityService) {}
 
   ngOnInit(): void {
@@ -59,6 +58,7 @@ export class LoginButtonComponent implements OnInit {
 
   logoffAndRevokeTokens() {
     this.oidcSecurityService.logoffAndRevokeTokens().subscribe((result) => console.log(result));
+    this.buttonText = 'Login'
   }
 
   revokeRefreshToken() {

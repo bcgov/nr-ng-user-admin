@@ -22,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { DebugComponent } from './debug/debug.component';
+<<<<<<< HEAD
 import { KcSubmitComponent } from './components/kc-submit/kc-submit.component';
+=======
+import { ForestclientComponent } from './components/forestclient/forestclient.component';
+>>>>>>> main
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { KcSubmitComponent } from './components/kc-submit/kc-submit.component';
     HeaderComponent,
     LoginButtonComponent,
     DebugComponent,
+<<<<<<< HEAD
     KcSubmitComponent,
+=======
+    ForestclientComponent,
+>>>>>>> main
   ],
   imports: [
     BrowserModule,
