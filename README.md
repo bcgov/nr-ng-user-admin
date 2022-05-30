@@ -15,3 +15,27 @@ It is also being used as a learning opportunity to help me understand:
 * rxjs
 * typescript
 * oidc based authentication
+
+# Run Application
+
+## Init Backend
+
+Installing dependencies, setting up the database, loading the data
+
+```
+pipenv install
+cd backend
+export DB_CONN=sqlite:///forestclient.db
+python3 initdb.py
+```
+
+## Start the Backend
+
+```
+pipenv shell
+cd backend
+export DB_CONN=sqlite:///forestclient.db
+dotenv
+uvicorn app.main:app --port 5000 --reload
+```
+

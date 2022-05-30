@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { DebugComponent } from './debug/debug.component';
+import { KcSubmitComponent } from './components/kc-submit/kc-submit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DebugComponent } from './debug/debug.component';
     HeaderComponent,
     LoginButtonComponent,
     DebugComponent,
+    KcSubmitComponent,
   ],
   imports: [
     BrowserModule,
