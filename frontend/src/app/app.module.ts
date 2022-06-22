@@ -1,32 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { RouterModule } from '@angular/router';
-import { RoutingModule } from './routing/routing.module'; // CLI imports AppRoutingModuleimport { EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
+// import { RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgSelectModule } from '@ng-select/ng-select';
 
-
+import { EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AuthConfigModule } from './auth-config.module';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
-import { EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
 import { UserComponent } from './components/user/user.component';
-import { HttpClientModule } from '@angular/common/http';
+import { RoutingModule } from './routing/routing.module'; // CLI imports AppRoutingModuleimport { EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { DebugComponent } from './debug/debug.component';
-<<<<<<< HEAD
 import { KcSubmitComponent } from './components/kc-submit/kc-submit.component';
-=======
 import { ForestclientComponent } from './components/forestclient/forestclient.component';
->>>>>>> main
 
 @NgModule({
   declarations: [
@@ -37,11 +33,8 @@ import { ForestclientComponent } from './components/forestclient/forestclient.co
     HeaderComponent,
     LoginButtonComponent,
     DebugComponent,
-<<<<<<< HEAD
     KcSubmitComponent,
-=======
     ForestclientComponent,
->>>>>>> main
   ],
   imports: [
     BrowserModule,
@@ -50,10 +43,10 @@ import { ForestclientComponent } from './components/forestclient/forestclient.co
     FormsModule, ReactiveFormsModule, NgSelectModule,
     BrowserAnimationsModule,
     MatSliderModule, MatInputModule, MatAutocompleteModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(private readonly eventService: PublicEventsService) {
